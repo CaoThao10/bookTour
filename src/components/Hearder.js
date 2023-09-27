@@ -28,7 +28,7 @@ const Hearder = ({ img }) => {
               </span>
               <span className="text-base text-black">012345698</span>
 
-              <div className="flex items-center px-2 mx-3 text-base border border-solid  rounded-3xl">
+              <div className="flex items-center px-2 mx-3 text-base border border-solid rounded-3xl">
                 <input
                   type="text"
                   placeholder="Nhập từ khóa tìm kiếm"
@@ -66,7 +66,7 @@ const Hearder = ({ img }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between mx-5 border-b ">
+        <div className="flex items-center justify-between mx-5 border-b h-[50px]">
           <div>
             <img className="w-[4rem]" src="/2.jpg" alt="" />
           </div>
@@ -74,25 +74,25 @@ const Hearder = ({ img }) => {
             <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">TRANG CHỦ</NavLink>
             </div>
-            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/intro">GIỚI THIỆU</NavLink>
             </div>
-            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/tour">TOUR</NavLink>
             </div>
-            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/price">BẢNG GIÁ</NavLink>
             </div>
-            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/book">ĐẶT TOUR</NavLink>
             </div>
-            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">BLOG</NavLink>
             </div>
-            <div className="px-2 py-3  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">HÌNH ẢNH</NavLink>
             </div>
-            <div className="px-2 py-3  hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3 hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">LIÊN HỆ</NavLink>
             </div>
           </div>
