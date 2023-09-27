@@ -4,6 +4,7 @@ import Introduce from "./pages/Introduce";
 import { Route, Routes } from "react-router-dom";
 import TourPage from "./pages/TourPage";
 import BookPage from "./pages/BookPage";
+import PricePage from "./pages/PricePage";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/intro" element={<Introduce></Introduce>}></Route>
         <Route path="/tour" element={<TourPage></TourPage>}></Route>
         <Route path="/book" element={<BookPage></BookPage>}></Route>
+        <Route path="/price" element={<PricePage></PricePage>}></Route>
         {/* <Home></Home> */}
         {/* <Introduce></Introduce> */}
       </Routes>

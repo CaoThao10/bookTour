@@ -81,7 +81,7 @@ const Hearder = ({ img }) => {
               <NavLink to="/tour">TOUR</NavLink>
             </div>
             <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
-              <NavLink to="/">BẢNG GIÁ</NavLink>
+              <NavLink to="/price">BẢNG GIÁ</NavLink>
             </div>
             <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
               <NavLink to="/book">ĐẶT TOUR</NavLink>
