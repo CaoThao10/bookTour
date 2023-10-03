@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import TourPage from "./pages/TourPage";
 import BookPage from "./pages/BookPage";
 import PricePage from "./pages/PricePage";
+import BlogPage from "./pages/BlogPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/tour" element={<TourPage></TourPage>}></Route>
         <Route path="/book" element={<BookPage></BookPage>}></Route>
         <Route path="/price" element={<PricePage></PricePage>}></Route>
+        <Route path="/blog" element={<BlogPage></BlogPage>}></Route>
         {/* <Home></Home> */}
         {/* <Introduce></Introduce> */}
       </Routes>
