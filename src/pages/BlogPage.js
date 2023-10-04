@@ -89,10 +89,10 @@ const BlogPage = () => {
   return (
     <div>
       <Hearder></Hearder>
-      <BlogHearder></BlogHearder>
+      <BlogHearder title={"Blog"}></BlogHearder>
       <BlogContent text={"Cẩm nang du lịch"} data={data1}></BlogContent>
       <BlogContent data={data2}></BlogContent>
-      <BlogContent text={"Đặc sản miền Tây"} data={data3}></BlogContent>
+      <BlogContent text={"Đặc sản Việt Nam"} data={data3}></BlogContent>
       <BlogContent data={data4}></BlogContent>
       <Footer></Footer>
     </div>

@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 const Hearder = ({ img }) => {
   return (
     <div>
-      <div className="relative w-full max-h-[1000px] min-h-[100px]">
+      <div className="relative w-full min-h-[100px] ">
         <img className="w-[100%]" src={img} alt="" />
       </div>
-      <div className="absolute top-0 w-[100%] bg-gray-100 bg-opacity-50">
-        <div className="p-2  border-b ">
-          <div className="flex justify-between items-center">
-            <div className="flex  items-center">
+      <div className="absolute top-0 w-[100%] min-h-[100px] bg-gray-100 bg-opacity-50 ">
+        <div className="  border-b w-full h-[50px]  ">
+          <div className="flex justify-between items-center px-[200px] h-[50px]">
+            <div className="flex  items-center h-full">
               <span>
                 <svg
                   className="mx-2"
@@ -66,7 +66,7 @@ const Hearder = ({ img }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between mx-5  border-b ">
+        <div className="flex items-center justify-between mx-5  border-b px-[200px] h-[50px]">
           <div>
             <img className="w-[4rem]" src="/2.jpg" alt="" />
           </div>
@@ -93,7 +93,7 @@ const Hearder = ({ img }) => {
               <NavLink to="/">HÌNH ẢNH</NavLink>
             </div>
             <div className=" px-2 py-3 hover:bg-gray-100 hover:text-green-400">
-              <NavLink to="/">LIÊN HỆ</NavLink>
+              <NavLink to="/contact">LIÊN HỆ</NavLink>
             </div>
           </div>
         </div>
