@@ -20,27 +20,6 @@ const ManageTour = () => {
               placeholder="Nhập tên sản phẩm"
               className="w-full h-[38px] col-span-3 px-3 border rounded-sm border-blue1 outline-none focus:border-blue6 transition-all"
             />
-            <div className="flex items-center col-span-2 gap-2">
-              <label htmlFor="" className="whitespace-nowrap">
-                Ngành hàng
-              </label>
-              <button className="border border-blue1 w-full h-[38px] flex items-center justify-center relative">
-                <span>Chọn ngành hàng</span>
-                <svg
-                  width="12"
-                  height="8"
-                  className="absolute right-2"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.6 -5.72205e-06L12 1.39999L6 7.39999L0 1.39999L1.4 -5.72205e-06L6 4.59999L10.6 -5.72205e-06Z"
-                    fill="#626262"
-                  />
-                </svg>
-              </button>
-            </div>
           </div>
           <div className="flex gap-3 mt-4">
             <button className="px-3 h-[36px] flex items-center bg-blue6 text-white rounded-sm justify-center hover:bg-grayEC transition-all hover:text-blue6 border-[2px] border-blue6">
@@ -107,9 +86,7 @@ const ManageTour = () => {
         {/*============================ View Product ============================*/}
         <div className="px-6 py-4">
           {/* <AllTour quantityProduct={products?.modifiedProducts?.length}> */}
-          <AllTour quantityProduct={1}>
-            {/* <ItemManageProduct></ItemManageProduct> */}
-          </AllTour>
+          <AllTour>{/* <ItemManageProduct></ItemManageProduct> */}</AllTour>
         </div>
       </div>
     </div>

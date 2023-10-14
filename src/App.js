@@ -5,10 +5,11 @@ import { Route, Routes } from "react-router-dom";
 import TourPage from "./pages/TourPage";
 import BookPage from "./pages/BookPage";
 import PricePage from "./pages/PricePage";
-import DashBoard from "./pages/admin/DashBoard";
 import ManageTour from "./pages/admin/ManageTour";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
+import Admin from "./layout/Admin";
+import AddTour from "./pages/admin/AddTour";
 
 const App = () => {
   return (
@@ -19,8 +20,10 @@ const App = () => {
         <Route path="/tour" element={<TourPage></TourPage>}></Route>
         <Route path="/book" element={<BookPage></BookPage>}></Route>
         <Route path="/price" element={<PricePage></PricePage>}></Route>
-        <Route path="/admin" element={<DashBoard></DashBoard>}></Route>
-        <Route path="/admin/manage" element={<ManageTour></ManageTour>}></Route>
+        <Route path="/admin" element={<Admin></Admin>}>
+          <Route path="manage" element={<ManageTour></ManageTour>}></Route>
+          <Route path="add-tour" element={<AddTour></AddTour>}></Route>
+        </Route>
         <Route path="/blog" element={<BlogPage></BlogPage>}></Route>
         <Route path="/contact" element={<ContactPage></ContactPage>}></Route>
         {/* <Home></Home> */}

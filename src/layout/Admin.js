@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
-const DashBoard = () => {
+const Admin = () => {
   const [isShow, setIsShow] = useState(Array(5).fill(true));
 
   const handleSetShow = (index) => {
@@ -84,12 +84,14 @@ const DashBoard = () => {
       <div className="flex w-full h-full pt-[60px]">
         <div className="!w-[250px] fixed bg-white pb-8 overflow-auto max-h-[calc(100vh_-_60px)]">
           <div className="flex px-[12%] items-center justify-around mt-5">
-            <button className="px-3 py-2 text-sm font-semibold text-black border-[2px] border-blue7 bg-blue7">
+            <button className="px-3 py-2 text-sm font-semibold text-white border-[2px] border-blue7 bg-blue7">
               View Shop
             </button>
-            <button className="px-3 py-2 text-sm font-semibold text-blue7 border-[2px] border-blue7">
-              Thêm SP
-            </button>
+            <NavLink to={"/admin/add-tour"}>
+              <button className="px-3 py-2 text-sm font-semibold text-blue7 border-[2px] border-blue7">
+                Thêm SP
+              </button>
+            </NavLink>
           </div>
           {/*============================== Quản lí đơn hàng ==============================*/}
           <div className="px-[8%] flex flex-col mt-5 cursor-pointer">
@@ -118,7 +120,7 @@ const DashBoard = () => {
                 isShow[0] ? "opacity-100 h-auto" : "h-0 opacity-0"
               } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
             >
-              <NavLink to={"manage"} className="itemMenuProfile">
+              <NavLink to={"admin/manage"} className="itemMenuProfile">
                 <li className="cursor-pointer">Tất cả</li>
               </NavLink>
               <li className="cursor-pointer">Đơn hủy</li>
@@ -277,11 +279,11 @@ const DashBoard = () => {
           <Outlet></Outlet>
         </div>
         {/* <div className="p-4 w-[250px] h-full"> */}
-        <div className="mt-4 p-4 w-[280px] bg-white"></div>
+        {/* <div className="mt-4 p-4 w-[280px] bg-white"></div> */}
         {/* </div> */}
       </div>
     </div>
   );
 };
 
-export default DashBoard;
+export default Admin;
