@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import TourPage from "./pages/TourPage";
 import BookPage from "./pages/BookPage";
 import PricePage from "./pages/PricePage";
+import DashBoard from "./pages/admin/DashBoard";
+import ManageTour from "./pages/admin/ManageTour";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
         <Route path="/tour" element={<TourPage></TourPage>}></Route>
         <Route path="/book" element={<BookPage></BookPage>}></Route>
         <Route path="/price" element={<PricePage></PricePage>}></Route>
+        <Route path="/admin" element={<DashBoard></DashBoard>}></Route>
+        <Route path="/admin/manage" element={<ManageTour></ManageTour>}></Route>
         {/* <Home></Home> */}
         {/* <Introduce></Introduce> */}
       </Routes>
