@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const TourDetail = ({ data }) => {
   return (
@@ -60,9 +61,12 @@ function Itemtour({ img, location, cost, sales }) {
           <span className=" border-black border   h-6 mx-2"></span>
           <span>Còn: {sales} VNĐ</span>
         </div>
-        <button className="rounded-2xl bg-yellow-500 w-[100px] h-8 text-xl text-white flex items-center justify-center my-2 hover:bg-yellow-200">
+        <NavLink
+          to="/detail"
+          className="rounded-2xl bg-yellow-500 w-[100px] h-8 text-xl text-white flex items-center justify-center my-2 hover:bg-yellow-200"
+        >
           Đặt tour
-        </button>
+        </NavLink>
       </div>
     </div>
   );

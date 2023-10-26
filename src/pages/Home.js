@@ -105,7 +105,7 @@ const dataListBlog = [
 const Home = () => {
   return (
     <div>
-      <Hearder img={"/2.jpg"}></Hearder>
+      <Hearder img={"./bien.jpg"}></Hearder>
       <Popular title={"Tour nổi bật trong tháng"} data={dataPopular1}></Popular>
       <Popular data={dataPopular2}></Popular>
       <Tour></Tour>
