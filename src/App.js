@@ -8,6 +8,7 @@ import PricePage from "./pages/PricePage";
 import ManageTour from "./pages/admin/ManageTour";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
+import TourDetailPage from "./pages/TourDetailPage";
 import Admin from "./layout/Admin";
 import AddTour from "./pages/admin/AddTour";
 import NotFound from "./pages/admin/NotFound";
@@ -37,6 +38,10 @@ const App = () => {
         </Route>
         <Route path="/blog" element={<BlogPage></BlogPage>}></Route>
         <Route path="/contact" element={<ContactPage></ContactPage>}></Route>
+        <Route
+          path="/detail"
+          element={<TourDetailPage></TourDetailPage>}
+        ></Route>
         {/* <Home></Home> */}
         {/* <Introduce></Introduce> */}
       </Routes>

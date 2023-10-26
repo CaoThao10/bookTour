@@ -42,43 +42,76 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-start leading-5">
-          <span className="flex justify-center items-center w-full text-xl">
-            Lorem ipsum dolor sit amet.
+        <div className="flex flex-col justify-center items-start leading-relaxed">
+          <span className=" flex justify-center font-bold items-center w-full text-xl">
+            Công ty TNHH Du Lịch Quốc Tế ABC
           </span>
-          <span className="leading-5 font-semibold">
+          <span className="leading-relaxed font-bold">
             Thời gian thành lập phát triển
           </span>
-          <span className="leading-5">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
-            quidem dicta reprehenderit magni commodi quo ea cupiditate et
-            aspernatur recusandae ab accusamus mollitia quia, ut minus quas
-            expedita culpa eius.
+          <span className="leading-relaxed">
+            Công ty <strong>TNHH du lịch quốc tế ABC</strong> được thành lập năm
+            2023, với tên gọi <strong>ABC</strong> . Sau thời gian hình thành và
+            phát triển, ABC không ngừng nghiêm cứu và hướng đến là đơn vị tiên
+            phong trong việc ứng dụng công nghệ hiện đại kết hợp với dịch vụ.
+            Chúng tôi luôn ưu tiên những ý tưởng du lịch độc đáo và sáng tạo đem
+            lại trải nghiệm tốt cho khách du lịch.
           </span>
-          <span className="leading-5 font-semibold">Lĩnh vực hoạt động</span>
-          <span className="leading-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            itaque iste quam eaque, perferendis ut omnis commodi totam cum
-            provident repellat deleniti temporibus similique. Consectetur,
-            deleniti debitis? Nam, architecto laborum.
+          <span className="leading-relaxed font-bold">Lĩnh vực hoạt động</span>
+          <span className="leading-relaxed">
+            ABC hoạt động như một nhà điều hành tour du lịch trong nước và ngoài
+            nước, chuyên tổ chức các tour du lịch về miền Tây như:
           </span>
-          <span className="leading-5 font-semibold">Tiêu chí hoạt động</span>
-          <span className="leading-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            labore, reiciendis placeat cum, odit exercitationem repellat
-            architecto modi minima dolor dolores, repellendus nihil repudiandae
-            mollitia inventore facere aliquid explicabo recusandae. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Deleniti labore,
-            reiciendis placeat cum, odit exercitationem repellat architecto modi
-            minima dolor dolores, repellendus nihil repudiandae mollitia
-            inventore facere aliquid explicabo recusandae.
+          <span className="pl-7">
+            - Tour miền tây 1 ngày: <strong>MỸ THO - BẾN TRE</strong>
           </span>
-          <span className="leading-5 font-semibold">Thành quả đạt được</span>
-          <span className="leading-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-            labore, reiciendis placeat cum, odit exercitationem repellat
-            architecto modi minima dolor dolores, repellendus nihil repudiandae
-            mollitia inventore facere aliquid explicabo recusandae.
+          <span className="pl-7">
+            - Tour miền tây 2 ngày 1 đêm:
+            <strong>MỸ THO - BẾN TRE - CẦN THƠ</strong>
+          </span>
+          <span className="pl-7">
+            - Tour tham quan vườn trái cây miền tây, các khu du lịch sinh thái.
+          </span>
+          <span>
+            Bên cạnh đó, chúng tôi còn có các dịch vụ hỗ trợ đi kèm để đảm bảo
+            mang đến trải nghiệm tốt nhất cho khách hàng như:
+          </span>
+          <span className="pl-7">- Dịch vụ tư vấn </span>
+          <span className="pl-7">- Dịch vụ hỗ trợ khách hàng </span>
+          <span className="pl-7">
+            - Quản lý lữ hành và các gói du lịch tùy chỉnh
+          </span>
+          <span>
+            <strong>ABC</strong> tự tin có thể đáp ứng nhu cầu đa dạng của du
+            khách khi tham quan miền Tây. Không những thế, chúng tôi còn cung
+            cấp giải pháp du lịch để nhằm mang đến cho khách hàng chuyến du lịch
+            như ý. Tất cả đều được điều chỉnh chuyên nghiệp phù hợp nhu cầu và
+            mang lại sự thoải mái, tiện lợi cho du khách, cho dù đó là gói du
+            lịch trọn gói hay tự túc.
+          </span>
+          <span className="leading-relaxed font-bold">Tiêu chí hoạt động</span>
+          <span className="leading-relaxed">
+            Với phương châm mang lại những giá trị tốt nhất cho du khách
+            <strong>ABC</strong>
+            luôn cung cấp những gì tốt nhất, thuận tiện nhất đồng thời tìm kiếm
+            những điểm đến và trải nghiệm mới với tiêu chí:
+          </span>
+          <span className="pl-7">- Chất lượng là quan tâm hàng đầu. </span>
+          <span className="pl-7">- Giá tour cạnh tranh nhất. </span>
+          <span className="pl-7">- Tour thiết kế theo yêu cầu. </span>
+          <span className="pl-7">- Khởi hành hàng ngày. </span>
+          <span className="pl-7">- Đặt tour nhanh chóng và thuận tiện. </span>
+          <span className="pl-7">- Thanh toán linh hoạt. </span>
+          <span className="pl-7">
+            - Tư vấn và hỗ trợ tối đa cho khách hàng.
+          </span>
+          <span className="leading-relaxed font-bold">Thành quả đạt được</span>
+          <span className=" leading-relaxed">
+            Xuyên suốt quá trình hoạt động <strong>ABC</strong> may mắn nhận
+            được sự tin tưởng và ủng hộ của hơn 500 nghìn khách hàng. Đây là
+            nguồn động viên to lớn và là động lực để <strong>ABC</strong> ngày
+            càng hoàn thiện và phát triển. Chúng tôi luôn hi vọng có thể mang
+            lại cho quý khách hàng những chuyến du lịch miền Tây trọn vẹn nhất.
           </span>
         </div>
         <div className="flex items-center justify-center bg-sky-400 w-24 rounded-xl  mt-5">
@@ -97,7 +130,7 @@ const AboutUs = () => {
 
           <span className="pl-2 text-white">Chia sẻ</span>
         </div>
-        <div className=" my-5 text-xl leading-5">
+        <div className=" my-5 text-xl leading-relaxed">
           <span>Tin liên quan</span>
           <h2 className="border w-[50px]  my-1 border-gray-700"></h2>
           <h3 className="border w-[40px] my-1 border-gray-700"></h3>

@@ -5,27 +5,27 @@ const Footer = () => {
     <div>
       <div className="flex justify-center items-start w-full my-5">
         <div className="flex flex-col justify-center items-center mx-[15px] max-w-[400px]">
-          <span className="text-xl">Lorem ipsum dolor sit amet.</span>
+          <span className="text-xl">Công ty TNHH Du Lịch Quốc Tế ABC</span>
           <ul>
-            <li className="text-base">Lorem ipsum dolor amet.</li>
+            <li className="text-base">Thông tin chuyển khoản.</li>
             <li className="text-base">
-              1.Lorem ipsum dolor sit amet consectetur adipisicing. Lorem, ipsum
-              dolor sit amet consectetur adipisicing elit.
+              1.Chủ tài khoản: <strong>Cao Thị Thảo </strong> | STK: 0312695342
+              | Ngân hàng Quân đội (Mb Bank)
             </li>
             <li className="text-base">
-              2.Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum
-              dolor sit.
+              2.Chủ tài khoản: <strong>Lê Đức Hải </strong> | STK: 0335895342 |
+              Ngân hàng Quân đội (Mb Bank).
             </li>
           </ul>
         </div>
         <div className="flex flex-col justify-center items-center mx-[15px] max-w-[400px]">
           <span className="text-xl">Thông tin liên hệ</span>
           <ul className="text-base">
-            <li>Địa chỉ: Lorem ipsum dolor sit amet.</li>
+            <li>Địa chỉ: Nguyễn Trác - Yên Nghĩa - Hà Đông - Hà Nội.</li>
             <li>Điện thoại: 0135654664</li>
             <li>Hotline: 211546454/6548502</li>
-            <li>Email: jsifosuefoiw@gmail.com</li>
-            <li>Website: https/jhsh.com</li>
+            <li>Email: dobietlagi@gmail.com</li>
+            <li>Website: https:/khongbietlagi.com</li>
             <li className="flex items-center px-2">
               <svg
                 width="40"
