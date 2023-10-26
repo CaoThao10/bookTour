@@ -2,6 +2,9 @@ import React from "react";
 import Hearder from "../components/Hearder";
 import TourDetail from "../components/TourDetail";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useQuery } from "react-query";
 
 const dataTour = [
   {
@@ -31,10 +34,20 @@ const dataTour = [
 ];
 
 const TourPage = () => {
+  const fetchTours = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: tours } = useQuery(["tours"], () => fetchTours());
   return (
     <div>
       <Hearder></Hearder>
-      <TourDetail data={dataTour}></TourDetail>
+      <TourDetail data={tours}></TourDetail>
       <Footer></Footer>
     </div>
   );

@@ -5,6 +5,9 @@ import Tour from "../components/Tour";
 import ListTour from "../components/ListTour";
 import Blog from "../components/Blog";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useQuery } from "react-query";
 
 const dataPopular1 = [
   {
@@ -77,16 +80,16 @@ const dataListTour = [
     location: "Ho Chi Minh",
     quantity: "5 tour",
   },
-  {
-    img: "/hanoi.jpg",
-    location: "Ha Noi",
-    quantity: "3 tour",
-  },
-  {
-    img: "/hcm.jpg",
-    location: "Ho Chi Minh",
-    quantity: "5 tour",
-  },
+  // {
+  //   img: "/hanoi.jpg",
+  //   location: "Ha Noi",
+  //   quantity: "3 tour",
+  // },
+  // {
+  //   img: "/hcm.jpg",
+  //   location: "Ho Chi Minh",
+  //   quantity: "5 tour",
+  // },
 ];
 
 const dataListBlog = [
@@ -103,11 +106,21 @@ const dataListBlog = [
 ];
 
 const Home = () => {
+  const fetchTours = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: tours } = useQuery(["tours"], () => fetchTours());
   return (
     <div>
       <Hearder img={"/2.jpg"}></Hearder>
-      <Popular title={"Tour nổi bật trong tháng"} data={dataPopular1}></Popular>
-      <Popular data={dataPopular2}></Popular>
+      <Popular title={"Tour nổi bật trong tháng"} data={tours}></Popular>
+      {/* <Popular data={dataPopular2}></Popular> */}
       <Tour></Tour>
       <ListTour data={dataListTour}></ListTour>
       <Blog data={dataListBlog}></Blog>

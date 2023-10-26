@@ -10,7 +10,7 @@ const Hearder = ({ img }) => {
       <div className="absolute top-0 w-[100%] min-h-[100px] bg-gray-100 bg-opacity-50 ">
         <div className="  border-b w-full h-[50px]  ">
           <div className="flex justify-between items-center px-[200px] h-[50px]">
-            <div className="flex  items-center h-full">
+            <div className="flex items-center h-full">
               <span>
                 <svg
                   className="mx-2"
@@ -28,11 +28,11 @@ const Hearder = ({ img }) => {
               </span>
               <span className="text-base text-black">012345698</span>
 
-              <div className=" flex items-center px-2 border border-solid text-base mx-3 rounded-3xl">
+              <div className="flex items-center px-2 mx-3 text-base border border-solid  rounded-3xl">
                 <input
                   type="text"
                   placeholder="Nhập từ khóa tìm kiếm"
-                  className="bg-transparent placeholder-black outline-none p-1"
+                  className="p-1 placeholder-black bg-transparent outline-none"
                 />
                 <svg
                   width="18"
@@ -47,7 +47,7 @@ const Hearder = ({ img }) => {
                   />
                 </svg>
               </div>
-              <span className="bg-yellow-400 text-base px-2 py-1 rounded-3xl">
+              <span className="px-2 py-1 text-base bg-yellow-400 rounded-3xl">
                 Liên hệ
               </span>
             </div>
@@ -55,13 +55,13 @@ const Hearder = ({ img }) => {
               <img
                 src="/Flag_of_Vietnam.svg.webp"
                 alt=""
-                className="h-7 w-7 rounded-full object-cover "
+                className="object-cover rounded-full h-7 w-7 "
               />
-              <span className=" border-black border   h-6 mx-2"></span>
+              <span className="h-6 mx-2 border border-black "></span>
               <img
                 src="/images.png"
                 alt=""
-                className="h-7 w-7 rounded-full object-cover "
+                className="object-cover rounded-full h-7 w-7 "
               />
             </div>
           </div>
@@ -70,29 +70,29 @@ const Hearder = ({ img }) => {
           <div>
             <img className="w-[4rem]" src="/2.jpg" alt="" />
           </div>
-          <div className="flex text-black font-medium ">
-            <div className="px-2 py-3 hover:bg-gray-100 transition-all  hover:text-green-400">
+          <div className="flex font-medium text-black ">
+            <div className="px-2 py-3 transition-all hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">TRANG CHỦ</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
+            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/intro">GIỚI THIỆU</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
+            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/tour">TOUR</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
+            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/price">BẢNG GIÁ</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
+            {/* <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/book">ĐẶT TOUR</NavLink>
-            </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 transition-all hover:text-green-400">
+            </div> */}
+            <div className="px-2 py-3 transition-all  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/blog">BLOG</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/">HÌNH ẢNH</NavLink>
             </div>
-            <div className=" px-2 py-3 hover:bg-gray-100 hover:text-green-400">
+            <div className="px-2 py-3  hover:bg-gray-100 hover:text-green-400">
               <NavLink to="/contact">LIÊN HỆ</NavLink>
             </div>
           </div>

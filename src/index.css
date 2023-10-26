@@ -42,3 +42,24 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.active{
+  color: white;
+  font-weight: 400;
+  background-color: #00C09E;
+}
+
+/* Kiểu thanh cuộn ngang */
+*::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 100rem;
+}
+
+/* Kiểu thanh cuộn dọc */
+*::-webkit-scrollbar-track {
+  background-color: #e2e9ff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #008d73;
+}

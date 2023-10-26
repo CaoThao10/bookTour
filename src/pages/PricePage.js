@@ -1,8 +1,32 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Hearder from "../components/Hearder";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useQuery } from "react-query";
 
 const PricePage = () => {
+  const fetchTours = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: tours } = useQuery(["tours"], () => fetchTours());
+  console.log(tours);
+  const handleFormatDate = (date) => {
+    const dateObject = new Date(date);
+
+    const year = dateObject.getFullYear();
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
+    const day = dateObject.getDate().toString().padStart(2, "0");
+
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+  };
   return (
     <div>
       <Hearder></Hearder>
@@ -16,7 +40,7 @@ const PricePage = () => {
             <tr>
               <th>STT</th>
               <th>MÃ</th>
-              <th>LỊCH TRÌNH TOUR</th>
+              {/* <th>LỊCH TRÌNH TOUR</th> */}
               <th>THỜI GIAN</th>
               <th>LỊCH KHỞI HÀNH</th>
               <th>PHƯƠNG TIỆN</th>
@@ -25,56 +49,23 @@ const PricePage = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-              <td>Germany</td>
-            </tr>
+            {tours?.length > 0 &&
+              tours?.map((item, index) => (
+                <tr key={index}>
+                  <td>{index}</td>
+                  <td>{item?.slug}</td>
+                  {/* <td>Germany</td> */}
+                  <td>{item?.duration}</td>
+                  <td>{handleFormatDate(item?.startDates)}</td>
+                  <td>{item?.vehicleType}</td>
+                  <td>{item?.price}</td>
+                  <td className="font-medium text-blue6">
+                    <a href={`/`} className="cursor-pointer">
+                      Xem chi tiết
+                    </a>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

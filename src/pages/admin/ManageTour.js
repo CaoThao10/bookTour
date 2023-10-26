@@ -1,14 +1,75 @@
-import React, { useState } from "react";
-import AllTour from "../../components/dashboard/AllTour";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { toast } from "react-toastify";
+import { convertBase64ToImage } from "../../until/componentsHandle";
 
 const classNameHeader =
   "py-5 text-center  border-b-[2px] cursor-pointer transition-all";
 
 const ManageTour = () => {
   const [isShow, setIsShow] = useState(0);
+  const [fakeAllData, setFakeAllData] = useState([]);
+
+  const fetchTours = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/booking/all");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: tours, refetch } = useQuery(["tours"], () => fetchTours());
+  useEffect(() => {
+    setFakeAllData(tours?.booking);
+  }, [tours]);
+
+  useEffect(() => {
+    if (isShow === 0) {
+      setFakeAllData(tours?.booking);
+    } else if (isShow === 1) {
+      setFakeAllData(
+        tours?.booking?.filter((item) => item?.status === "PENDING")
+      );
+    } else if (isShow === 2) {
+      setFakeAllData(
+        tours?.booking?.filter((item) => item?.status === "CONFIRMED")
+      );
+    } else if (isShow === 3) {
+      setFakeAllData(
+        tours?.booking?.filter((item) => item?.status === "INPROGRESS")
+      );
+    } else if (isShow === 4) {
+      setFakeAllData(
+        tours?.booking?.filter((item) => item?.status === "COMPLETED")
+      );
+    } else if (isShow === 5) {
+      setFakeAllData(
+        tours?.booking?.filter((item) => item?.status === "DELAYED")
+      );
+    }
+  }, [isShow, tours]);
+  const handleActionProduct = (id, action) => {
+    axios
+      .put(`http://localhost:8001/api/v1/booking/${id}`, {
+        status: action,
+      })
+      .then((res) => {
+        console.log(res);
+        refetch();
+        toast.success("Xác nhận thành công");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Xác nhận thất bại");
+      });
+  };
   const handleSetShow = (index) => {
     setIsShow(index);
   };
+
+  // console.log(fakeAllData);
   return (
     <div>
       <div className="p-5 pb-8 bg-white">
@@ -48,7 +109,7 @@ const ManageTour = () => {
             }`}
             onClick={() => handleSetShow(1)}
           >
-            Thành công
+            Chờ xác nhận
           </span>
           <span
             className={` ${classNameHeader} ${
@@ -56,7 +117,7 @@ const ManageTour = () => {
             }`}
             onClick={() => handleSetShow(2)}
           >
-            Chờ xử lí
+            Đã xác nhận
           </span>
           <span
             className={` ${classNameHeader} ${
@@ -64,7 +125,7 @@ const ManageTour = () => {
             }`}
             onClick={() => handleSetShow(3)}
           >
-            Yêu cầu bảo hành
+            Đang diễn ra
           </span>
           <span
             className={` ${classNameHeader} ${
@@ -72,7 +133,7 @@ const ManageTour = () => {
             }`}
             onClick={() => handleSetShow(4)}
           >
-            Đã hủy
+            Thành công
           </span>
           <span
             className={` ${classNameHeader} ${
@@ -80,14 +141,139 @@ const ManageTour = () => {
             }`}
             onClick={() => handleSetShow(5)}
           >
-            Báo cáo/Hoàn tiền
+            Bị hoãn
           </span>
         </div>
         {/*============================ View Product ============================*/}
-        <div className="px-6 py-4">
-          {/* <AllTour quantityProduct={products?.modifiedProducts?.length}> */}
-          <AllTour>{/* <ItemManageProduct></ItemManageProduct> */}</AllTour>
+        <div className="flex flex-col gap-6 px-6 py-4">
+          <h2 className="font-medium text-[22px] mt-2">
+            {fakeAllData?.length} đơn hàng
+          </h2>
+          <div className="grid items-center py-5 px-[1%] border-b grid-cols-20 bg-grayEC border-grayE8">
+            <span className="col-span-7">Name tour</span>
+            <span className="col-span-3">Total People</span>
+            <span className="col-span-3">Price</span>
+            <span className="col-span-3">Status</span>
+            <span className="col-span-4">Action</span>
+          </div>
+          {fakeAllData?.length > 0 &&
+            fakeAllData?.map((item, index) => {
+              return (
+                <div
+                  className="flex flex-col border border-grayE8"
+                  key={item.id}
+                >
+                  <div className="flex justify-between px-[1%] py-2 bg-grayEC">
+                    <span className="font-semibold">
+                      {item?.bookingCustomer?.fullName}
+                    </span>
+                    <span>
+                      Mã Tour:
+                      <span className="font-semibold text-[18px]">
+                        {" "}
+                        {item?.bookingId}
+                      </span>
+                    </span>
+                  </div>
+                  <div className="px-[1%] py-3 grid grid-cols-20 items-center">
+                    <div className="col-span-7">
+                      <div className="flex items-center gap-2">
+                        <p>
+                          <img
+                            src={
+                              convertBase64ToImage(item?.tourBooking?.image) ||
+                              "/1.png"
+                            }
+                            alt=""
+                            className="w-[56px] h-[56px] object-cover rounded-sm border"
+                          />
+                        </p>
+                        <p className="flex flex-col gap-[6px] pr-3">
+                          <span className="px-1 text-xs max-w-min whitespace-nowrap text-greenText bg-greenBorder bg-opacity-20">
+                            {item?.tourBooking?.duration}
+                          </span>
+                          <span className="text-[15px] text-black leading-4">
+                            {item?.tourBooking?.name}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="col-span-3">
+                      <span>{item?.numberOfParticipants}</span>
+                    </div>
+                    <div className="flex flex-col col-span-3 gap-2">
+                      <span>{item?.totalPrice}</span>
+                      <span className="px-1 text-xs text-red bg-rose-500 bg-opacity-20 max-w-max">
+                        Chưa thanh toán
+                      </span>
+                    </div>
+                    <div className="col-span-3">
+                      <span> {item?.status}</span>
+                    </div>
+                    <div className="col-span-4">
+                      <div className="flex gap-2">
+                        <button
+                          className={`px-3 h-[36px] flex items-center bg-blue6 cursor-pointer text-white rounded-sm justify-center hover:bg-grayEC transition-all hover:text-blue6 border-[2px] border-blue6 ${
+                            item?.status === "CONFIRMED" &&
+                            "!bg-rose-300 !text-red !border-rose-300"
+                          }`}
+                          onClick={() => {
+                            if (item?.status === "DELAYED") {
+                              handleActionProduct(item?.id, "INPROGRESS");
+                            } else if (item?.status === "INPROGRESS") {
+                              handleActionProduct(item?.id, "COMPLETED");
+                            } else if (item?.status === "CONFIRMED") {
+                              handleActionProduct(item?.id, "DELAYED");
+                            } else {
+                              handleActionProduct(item?.id, "CONFIRMED");
+                            }
+                          }}
+                        >
+                          {item?.status === "PENDING"
+                            ? "Xác nhận"
+                            : item?.status === "CONFIRMED"
+                            ? "Hoãn"
+                            : item?.status === "INPROGRESS"
+                            ? "Hoàn thành"
+                            : item?.status === "DELAYED"
+                            ? "Bắt đầu"
+                            : "Đã hoàn thành"}
+                        </button>
+                        {item?.status === "CONFIRMED" && (
+                          <button
+                            className={`px-3 h-[36px] flex items-center bg-blue6 cursor-pointer text-white rounded-sm justify-center hover:bg-grayEC transition-all hover:text-blue6 border-[2px] border-blue6 `}
+                            onClick={() => {
+                              handleActionProduct(item?.id, "INPROGRESS");
+                            }}
+                          >
+                            Bắt đầu
+                          </button>
+                        )}
+                        {item?.status === "PENDING" && (
+                          <button
+                            className={`px-3 h-[36px] flex items-center bg-blue6 cursor-pointer text-white rounded-sm justify-center hover:bg-grayEC transition-all hover:text-blue6 border-[2px] border-blue6 `}
+                            onClick={() => {
+                              handleActionProduct(item?.id, "CANCELLED");
+                            }}
+                          >
+                            Hủy bỏ
+                          </button>
+                        )}
+
+                        <a
+                          href={`tel:${item?.bookingCustomer?.phoneNumber}`}
+                          className="px-3 h-[36px] whitespace-nowrap flex items-center justify-center border-[2px] rounded-sm transition-all hover:text-white hover:bg-blue7 text-blue6 border-blue6"
+                        >
+                          Liên hệ
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
         </div>
+        123
       </div>
     </div>
   );

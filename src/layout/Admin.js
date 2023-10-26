@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Admin = () => {
-  const [isShow, setIsShow] = useState(Array(5).fill(true));
-
-  const handleSetShow = (index) => {
-    let temp = [...isShow];
-    temp[index] = !temp[index];
-    setIsShow(temp);
-  };
   return (
-    <div className="bg-[#f6f6f6] w-full min-h-screen">
-      <div className="w-full fixed h-[60px] bg-white z-50 shadow-sm px-[2%] border-b border-blue6">
+    <div className="bg-[#f6f6f6] w-full min-h-[100vh]">
+      <div className="w-full fixed z-10 h-[60px] bg-white shadow-sm px-[2%] border-b border-blue6">
         <div className="flex items-center justify-between h-full ">
           {/*------------------LOGO-------------------*/}
-          <NavLink to={"/seller"} className="">
+          <NavLink to={"/"} className="">
             <div className="flex items-center h-full gap-2">
               <img src="logo512.png" alt="" className="h-[42px]" />
               <span className="text-lg font-semibold">DevHouse</span>
@@ -55,223 +48,70 @@ const Admin = () => {
                 />
               </svg>
             </button>
-            <button className="cursor-pointer">
-              <svg
-                width="17"
-                height="20"
-                viewBox="0 0 19 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.4763 15.1893C18.3948 15.0911 18.3147 14.9929 18.2362 14.8981C17.1558 13.5914 16.5022 12.8027 16.5022 9.10348C16.5022 7.1883 16.044 5.61687 15.1409 4.4383C14.475 3.56763 13.5749 2.90714 12.3885 2.41902C12.3732 2.41053 12.3596 2.39938 12.3482 2.38612C11.9215 0.957098 10.7537 0 9.43665 0C8.11959 0 6.95232 0.957098 6.52557 2.38464C6.51419 2.39742 6.50074 2.40821 6.4858 2.41656C3.71714 3.55634 2.3716 5.74308 2.3716 9.10201C2.3716 12.8027 1.71897 13.5914 0.637628 14.8967C0.559057 14.9914 0.479012 15.0877 0.397495 15.1879C0.186924 15.4418 0.0535095 15.7508 0.0130414 16.0782C-0.0274266 16.4056 0.0267453 16.7377 0.169146 17.0353C0.472137 17.6737 1.1179 18.07 1.85499 18.07H17.0237C17.7574 18.07 18.3987 17.6742 18.7027 17.0387C18.8457 16.7411 18.9004 16.4086 18.8603 16.0809C18.8201 15.7531 18.6869 15.4437 18.4763 15.1893ZM9.43665 22C10.1463 21.9994 10.8425 21.8068 11.4515 21.4426C12.0605 21.0783 12.5596 20.556 12.8958 19.9311C12.9116 19.9012 12.9194 19.8676 12.9185 19.8338C12.9175 19.7999 12.9078 19.7669 12.8903 19.7378C12.8728 19.7088 12.8481 19.6848 12.8186 19.6682C12.7891 19.6516 12.7558 19.6428 12.7219 19.6429H6.15236C6.11844 19.6427 6.08507 19.6514 6.05549 19.668C6.02591 19.6846 6.00114 19.7086 5.98359 19.7376C5.96604 19.7667 5.9563 19.7997 5.95532 19.8336C5.95435 19.8675 5.96217 19.9011 5.97803 19.9311C6.31419 20.556 6.81317 21.0782 7.42208 21.4424C8.03098 21.8067 8.72711 21.9993 9.43665 22Z"
-                  fill="#555555"
-                />
-              </svg>
-            </button>
-
-            <div className="w-8 h-8">
-              <img
-                src="logo512.png"
-                alt=""
-                className="object-cover w-full h-full rounded-full"
-              />
-            </div>
-            <span>Ldhai_store</span>
           </div>
         </div>
       </div>
-      <div className="flex w-full h-full pt-[60px]">
-        <div className="!w-[250px] fixed bg-white pb-8 overflow-auto max-h-[calc(100vh_-_60px)]">
-          <div className="flex px-[12%] items-center justify-around mt-5">
-            <button className="px-3 py-2 text-sm font-semibold text-white border-[2px] border-blue7 bg-blue7">
-              View Shop
-            </button>
-            <NavLink to={"/admin/add-tour"}>
-              <button className="px-3 py-2 text-sm font-semibold text-blue7 border-[2px] border-blue7">
-                Thêm SP
-              </button>
-            </NavLink>
-          </div>
-          {/*============================== Quản lí đơn hàng ==============================*/}
-          <div className="px-[8%] flex flex-col mt-5 cursor-pointer">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => handleSetShow(0)}
-            >
-              <span className="font-semibold">Quản lí đơn hàng</span>
-              <button className={`${isShow[0] ? "" : "rotate-90"}`}>
-                <svg
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      <div className="flex w-full h-full min-h-[100vh] pt-[60px]">
+        <div className="fixed top-[30px] left-0 flex items-center h-full">
+          <div className="!w-[250px] px-[8%] py-[10%] bg-white h-[80%] overflow-hidden flex flex-col justify-between border rounded-tr-3xl rounded-br-3xl shadow-lg">
+            {/*============================== Quản lí đơn hàng ==============================*/}
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-1">
+                <NavLink to={"dashboard"} className="p-4 rounded-md ">
+                  Dashboard
+                </NavLink>
+                <NavLink
+                  to={"manageInWeb"}
+                  className="p-4 rounded-md itemMenuProfile"
                 >
-                  <path
-                    d="M10.6 2.47955e-05L12 1.40002L6 7.40002L0 1.40002L1.4 2.47955e-05L6 4.60002L10.6 2.47955e-05Z"
-                    fill="#626262"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul
-              className={`${
-                isShow[0] ? "opacity-100 h-auto" : "h-0 opacity-0"
-              } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
-            >
-              <NavLink to={"admin/manage"} className="itemMenuProfile">
-                <li className="cursor-pointer">Tất cả</li>
-              </NavLink>
-              <li className="cursor-pointer">Đơn hủy</li>
-              <li className="cursor-pointer">Trả hàng/ hoàn tiền</li>
-              <li className="cursor-pointer">Đơn đặt theo yêu cầu</li>
-            </ul>
-          </div>
+                  Quản lí Tour trang web
+                </NavLink>
+                <NavLink
+                  to={"manage"}
+                  className="p-4 rounded-md itemMenuProfile"
+                >
+                  Quản lí đặt Tour
+                </NavLink>
 
-          {/*============================== Quản lí sản phẩm ==============================*/}
-          <div className="px-[8%] flex flex-col mt-5">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => handleSetShow(1)}
-            >
-              <span className="font-semibold">Quản lí sản phẩm</span>
-              <button className={`${isShow[1] ? "" : "rotate-90"}`}>
-                <svg
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                <NavLink to={"add-tour"} className="p-4 rounded-md ">
+                  Thêm Tour
+                </NavLink>
+                <NavLink
+                  to={"support"}
+                  className="p-4 rounded-md itemMenuProfile"
                 >
-                  <path
-                    d="M10.6 2.47955e-05L12 1.40002L6 7.40002L0 1.40002L1.4 2.47955e-05L6 4.60002L10.6 2.47955e-05Z"
-                    fill="#626262"
-                  />
-                </svg>
+                  Hỗ trợ
+                </NavLink>
+                <NavLink
+                  to={"revenue"}
+                  className="p-4 rounded-md itemMenuProfile"
+                >
+                  Doanh thu
+                </NavLink>
+                <NavLink
+                  to={"feed-back"}
+                  className="p-4 rounded-md itemMenuProfile whitespace-nowrap"
+                >
+                  Góp ý, cải thiện sản phẩm
+                </NavLink>
+              </div>
+            </div>
+            <div className="flex flex-col gap-5 pt-3 border-t">
+              <div className="flex items-center justify-center gap-3">
+                <img
+                  src="/1.png"
+                  alt="avt"
+                  className="w-[45px] h-[45px] rounded-full"
+                />
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold">Le Duc Hai</span>
+                  <span>leduchai@gmail.com</span>
+                </div>
+              </div>
+              <button className="p-3 font-semibold text-white rounded-lg bg-slate-400">
+                Log Out
               </button>
             </div>
-            <ul
-              className={`${
-                isShow[1] ? "opacity-100 h-auto" : "h-0 opacity-0"
-              } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
-            >
-              {" "}
-              <NavLink to={"product"} className="itemMenuProfile">
-                <li className="cursor-pointer ">Tất cả sản phẩm</li>
-              </NavLink>
-              <NavLink to={"add-product"} className="itemMenuProfile">
-                <li className="cursor-pointer">Thêm sản phẩm</li>
-              </NavLink>
-              <NavLink to={"add-category"} className="itemMenuProfile">
-                <li className="cursor-pointer">
-                  Sản phẩm vi phạm/ Tesst Add category
-                </li>
-              </NavLink>
-            </ul>
-          </div>
-
-          {/*============================== Kênh Marketing ==============================*/}
-          <div className="px-[8%] flex flex-col mt-5">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => handleSetShow(2)}
-            >
-              <span className="font-semibold">Kênh marketing</span>
-              <button className={`${isShow[2] ? "" : "rotate-90"}`}>
-                <svg
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.6 2.47955e-05L12 1.40002L6 7.40002L0 1.40002L1.4 2.47955e-05L6 4.60002L10.6 2.47955e-05Z"
-                    fill="#626262"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul
-              className={`${
-                isShow[2] ? "opacity-100 h-auto" : "h-0 opacity-0"
-              } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
-            >
-              <li className="cursor-pointer">Quảng bá sản phẩm</li>
-              <li className="cursor-pointer">Tạo Voucher</li>
-            </ul>
-          </div>
-
-          {/*============================== Tài chính ==============================*/}
-          <div className="px-[8%] flex flex-col mt-5">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => handleSetShow(3)}
-            >
-              <span className="font-semibold">Tài chính</span>
-              <button className={`${isShow[3] ? "" : "rotate-90"}`}>
-                <svg
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.6 2.47955e-05L12 1.40002L6 7.40002L0 1.40002L1.4 2.47955e-05L6 4.60002L10.6 2.47955e-05Z"
-                    fill="#626262"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul
-              className={`${
-                isShow[3] ? "opacity-100 h-auto" : "h-0 opacity-0"
-              } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
-            >
-              <li className="cursor-pointer">Doanh thu</li>
-              <li className="cursor-pointer">Số dư tài khoản</li>
-              <li className="cursor-pointer">Rút/Nạp số dư</li>
-            </ul>
-          </div>
-
-          {/*============================== Quản lí Shop ==============================*/}
-          <div className="px-[8%] flex flex-col mt-5">
-            <div
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => handleSetShow(4)}
-            >
-              <span className="font-semibold">Quản lí shop</span>
-              <button className={`${isShow[4] ? "" : "rotate-90"}`}>
-                <svg
-                  width="12"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.6 2.47955e-05L12 1.40002L6 7.40002L0 1.40002L1.4 2.47955e-05L6 4.60002L10.6 2.47955e-05Z"
-                    fill="#626262"
-                  />
-                </svg>
-              </button>
-            </div>
-            <ul
-              className={`${
-                isShow[4] ? "opacity-100 h-auto" : "h-0 opacity-0"
-              } mt-2 flex flex-col gap-[4px] text-sm list-disc px-[12%]`}
-            >
-              <li className="cursor-pointer">Đánh giá shop</li>
-              <li className="cursor-pointer">Hồ sơ shop</li>
-            </ul>
-          </div>
-          <div className="px-[8%] flex flex-col mt-5">
-            <span className="font-semibold">Quản lí đơn hàng</span>
-          </div>
-          <div className="px-[8%] flex flex-col mt-5">
-            <span className="font-semibold">Góp ý, cải thiện chất lượng</span>
           </div>
         </div>
         <div className="!w-[250px]"></div>
