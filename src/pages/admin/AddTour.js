@@ -32,7 +32,7 @@ const AddTour = () => {
   // Lấy thông tin sản phẩm
   const fetchOneTours = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/tour/2");
+      const res = await axios.get(`http://localhost:8001/api/v1/tour/${id}`);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -112,7 +112,7 @@ const AddTour = () => {
     };
     fetchData();
   }, [id, isLoading]);
-
+  console.log(valueDescription);
   // Reset giá trị
   const handleResetValue = () => {
     setValueInput({
@@ -175,7 +175,10 @@ const AddTour = () => {
       [key]: value,
     });
   };
-
+  const handleDes = async (html) => {
+    console.log(html);
+    setValueDescription(html);
+  };
   //Xử lí thay đổi ảnh đại diện
   const imageChange = async (e) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -219,7 +222,6 @@ const AddTour = () => {
     }
   };
 
-  console.log(valueInput);
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
@@ -261,31 +263,33 @@ const AddTour = () => {
               <option value="Pending">Pending</option>
             </select>
 
-            <label class="relative inline-flex items-center mb-5 cursor-pointer">
+            <label className="relative inline-flex items-center mb-5 cursor-pointer">
               <input
                 type="checkbox"
+                checked={valueInput?.featured}
                 defaultChecked={valueInput?.featured}
                 onChange={(e) => {
                   handleSetValue("featured", e.target.checked);
                 }}
-                class="sr-only peer"
+                className="sr-only peer"
               />
-              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Feature
               </span>
             </label>
-            <label class="relative inline-flex items-center mb-5 cursor-pointer">
+            <label className="relative inline-flex items-center mb-5 cursor-pointer">
               <input
                 type="checkbox"
+                checked={valueInput?.tourHot}
                 defaultChecked={valueInput?.tourHot}
                 onChange={(e) => {
                   handleSetValue("tourHot", e.target.checked);
                 }}
-                class="sr-only peer"
+                className="sr-only peer"
               />
-              <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                 Tour Hot
               </span>
             </label>
@@ -453,7 +457,7 @@ const AddTour = () => {
               valueDescription || convertBase64ToImage(valueDescription)
             }
             placeholder="Write something..."
-            onChange={(html) => setValueDescription(html)}
+            onChange={(html) => handleDes(html)}
           ></TextEditor>
         </FormUIAddProduct>
         <div className="flex items-center justify-center mt-5">

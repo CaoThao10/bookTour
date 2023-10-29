@@ -3,6 +3,9 @@ import Hearder from "../components/Hearder";
 import BlogContent from "../components/BlogContent";
 import BlogHearder from "../components/BlogHearder";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useQuery } from "react-query";
 
 const data1 = [
   {
@@ -88,14 +91,25 @@ const data4 = [
 ];
 
 const BlogPage = () => {
+  const fetchPost = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/post");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: posts } = useQuery(["allPosts"], () => fetchPost());
+  console.log(posts);
   return (
     <div>
       <Hearder></Hearder>
       <BlogHearder title={"Blog"}></BlogHearder>
-      <BlogContent text={"Cẩm nang du lịch"} data={data1}></BlogContent>
-      <BlogContent data={data2}></BlogContent>
-      <BlogContent text={"Đặc sản Việt Nam"} data={data3}></BlogContent>
-      <BlogContent data={data4}></BlogContent>
+      <BlogContent text={"Cẩm nang du lịch"} data={posts?.posts}></BlogContent>
+      {/* <BlogContent data={data2}></BlogContent> */}
+      {/* <BlogContent text={"Đặc sản Việt Nam"} data={data3}></BlogContent>
+      <BlogContent data={data4}></BlogContent> */}
       <Footer></Footer>
     </div>
   );

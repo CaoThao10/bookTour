@@ -72,7 +72,7 @@ const BookTour = () => {
         .padStart(2, "0")}`,
       totalPrice: 5000000,
     });
-  }, []);
+  }, [oneTours]);
   const handleBookTour = async () => {
     try {
       const res = await axios.post(
@@ -212,7 +212,7 @@ const BookTour = () => {
               />
             </div>
           </div>
-          <div className="w-[740px] min-h-[240px] my-3 border rounded-xl border-blue-500 ">
+          {/* <div className="w-[740px] min-h-[240px] my-3 border rounded-xl border-blue-500 ">
             <div className="w-full p-2 px-2 bg-blue-500 rounded-t-xl ">
               <span>Lưu ý</span>
             </div>
@@ -236,7 +236,7 @@ const BookTour = () => {
                 repudiandae voluptas officiis mollitia explicabo optio a?
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="border border-orange-400 rounded-xl w-[360px] h-[450px] m-3">
           <div className="w-full p-2 bg-orange-400 rounded-t-xl">

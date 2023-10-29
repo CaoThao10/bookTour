@@ -3,6 +3,7 @@ import Hearder from "../components/Hearder";
 import AboutUs from "../components/AboutUs";
 import Popular from "../components/Popular";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const dataPopular1 = [
   {
@@ -30,6 +31,7 @@ const dataPopular1 = [
 const Introduce = () => {
   return (
     <div>
+      <ScrollToTop></ScrollToTop>
       <Hearder></Hearder>
       {/* <Popular data={dataPopular1}></Popular> */}
       <AboutUs></AboutUs>

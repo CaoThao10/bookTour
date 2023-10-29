@@ -1,23 +1,25 @@
 import React from "react";
+import { convertBase64ToImage } from "../until/componentsHandle";
 
 const Blog = ({ data }) => {
+  console.log(data);
   return (
     <div>
-      <div className="flex justify-center items-center flex-col">
-        <div className="w-full flex justify-start items-start flex-col">
-          <div className=" w-full  flex justify-center items-center">
-            <h2 className="text-4xl text-gray-500 font-medium">Blog</h2>
+      <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-start justify-start w-full">
+          <div className="flex items-center justify-center w-full ">
+            <h2 className="text-4xl font-medium text-gray-500">Blog</h2>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 my-5">
-          {data.map((item, index) => (
-            <ItemBlog
-              key={index}
-              img={item?.img}
-              title={item?.title}
-              note={item?.note}
-            ></ItemBlog>
-          ))}
+          {data?.length > 0 &&
+            data?.map((item, index) => (
+              <ItemBlog
+                key={index}
+                img={convertBase64ToImage(item?.image)}
+                title={item?.title}
+              ></ItemBlog>
+            ))}
         </div>
       </div>
     </div>
@@ -27,18 +29,17 @@ const Blog = ({ data }) => {
 function ItemBlog({ img, title, note }) {
   return (
     <div className="w-[625px] h-[425px]  relative">
-      <div className=" w-full h-full ">
+      <div className="w-full h-full ">
         <img
           className="w-[100%] h-full object-cover rounded-md"
           src={img}
           alt=""
         />
       </div>
-      <div className="absolute bottom-2 text-white px-3">
+      <div className="absolute px-3 text-white bottom-2">
         <h2 className="text-2xl">{title}</h2>
-        <h3>{note}</h3>
         <a className="flex flex-col items-center justify-center mt-1" href="/">
-          <button className="rounded-xl border hover:border-transparent px-2 py-1 hover:bg-yellow-400">
+          <button className="px-2 py-1 border rounded-xl hover:border-transparent hover:bg-yellow-400">
             Xem thêm
           </button>
         </a>

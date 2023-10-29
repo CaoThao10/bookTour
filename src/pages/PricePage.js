@@ -4,6 +4,7 @@ import Hearder from "../components/Hearder";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useQuery } from "react-query";
+import { NavLink } from "react-router-dom";
 
 const PricePage = () => {
   const fetchTours = async () => {
@@ -39,7 +40,7 @@ const PricePage = () => {
           <thead>
             <tr>
               <th>STT</th>
-              <th>MÃ</th>
+              <th>TÊN TOUR</th>
               {/* <th>LỊCH TRÌNH TOUR</th> */}
               <th>THỜI GIAN</th>
               <th>LỊCH KHỞI HÀNH</th>
@@ -53,16 +54,16 @@ const PricePage = () => {
               tours?.map((item, index) => (
                 <tr key={index}>
                   <td>{index}</td>
-                  <td>{item?.slug}</td>
+                  <td>{item?.name}</td>
                   {/* <td>Germany</td> */}
                   <td>{item?.duration}</td>
                   <td>{handleFormatDate(item?.startDates)}</td>
                   <td>{item?.vehicleType}</td>
                   <td>{item?.price}</td>
                   <td className="font-medium text-blue6">
-                    <a href={`/`} className="cursor-pointer">
+                    <NavLink to={`/${item?.slug}`} className="cursor-pointer">
                       Xem chi tiết
-                    </a>
+                    </NavLink>
                   </td>
                 </tr>
               ))}

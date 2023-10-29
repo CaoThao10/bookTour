@@ -1,9 +1,10 @@
 import React from "react";
+import Contact from "./Contact";
 
 const AboutUs = () => {
   return (
     <div>
-      <div className="flex bg-gray-100 p-2 pl-10 cursor-pointer mt-0">
+      <div className="flex p-2 pl-10 mt-0 bg-gray-100 cursor-pointer">
         <span className="leading-5">
           <svg
             width="8"
@@ -18,14 +19,14 @@ const AboutUs = () => {
             />
           </svg>
         </span>
-        <span className="leading-5 px-2">Về chúng tôi</span>
+        <span className="px-2 leading-5">Về chúng tôi</span>
       </div>
       <div className="mx-40">
         <div className="flex flex-col mt-5">
           <span className="font-medium">VỀ CHÚNG TÔI</span>
-          <div className="border p-5 mt-2 bg-blue-50">
+          <div className="p-5 mt-2 border bg-blue-50">
             <div>
-              <ul className="text-sky-400 leading-normal underline">
+              <ul className="leading-normal underline text-sky-400">
                 <li>
                   <a href="/">1.Thời gian thành lập và quá trình phát triển.</a>
                 </li>
@@ -42,11 +43,11 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-start leading-relaxed">
-          <span className=" flex justify-center font-bold items-center w-full text-xl">
+        <div className="flex flex-col items-start justify-center leading-relaxed">
+          <span className="flex items-center justify-center w-full text-xl font-bold ">
             Công ty TNHH Du Lịch Quốc Tế ABC
           </span>
-          <span className="leading-relaxed font-bold">
+          <span className="font-bold leading-relaxed">
             Thời gian thành lập phát triển
           </span>
           <span className="leading-relaxed">
@@ -57,7 +58,7 @@ const AboutUs = () => {
             Chúng tôi luôn ưu tiên những ý tưởng du lịch độc đáo và sáng tạo đem
             lại trải nghiệm tốt cho khách du lịch.
           </span>
-          <span className="leading-relaxed font-bold">Lĩnh vực hoạt động</span>
+          <span className="font-bold leading-relaxed">Lĩnh vực hoạt động</span>
           <span className="leading-relaxed">
             ABC hoạt động như một nhà điều hành tour du lịch trong nước và ngoài
             nước, chuyên tổ chức các tour du lịch về miền Tây như:
@@ -89,7 +90,7 @@ const AboutUs = () => {
             mang lại sự thoải mái, tiện lợi cho du khách, cho dù đó là gói du
             lịch trọn gói hay tự túc.
           </span>
-          <span className="leading-relaxed font-bold">Tiêu chí hoạt động</span>
+          <span className="font-bold leading-relaxed">Tiêu chí hoạt động</span>
           <span className="leading-relaxed">
             Với phương châm mang lại những giá trị tốt nhất cho du khách
             <strong>ABC</strong>
@@ -105,8 +106,8 @@ const AboutUs = () => {
           <span className="pl-7">
             - Tư vấn và hỗ trợ tối đa cho khách hàng.
           </span>
-          <span className="leading-relaxed font-bold">Thành quả đạt được</span>
-          <span className=" leading-relaxed">
+          <span className="font-bold leading-relaxed">Thành quả đạt được</span>
+          <span className="leading-relaxed ">
             Xuyên suốt quá trình hoạt động <strong>ABC</strong> may mắn nhận
             được sự tin tưởng và ủng hộ của hơn 500 nghìn khách hàng. Đây là
             nguồn động viên to lớn và là động lực để <strong>ABC</strong> ngày
@@ -114,7 +115,7 @@ const AboutUs = () => {
             lại cho quý khách hàng những chuyến du lịch miền Tây trọn vẹn nhất.
           </span>
         </div>
-        <div className="flex items-center justify-center bg-sky-400 w-24 rounded-xl  mt-5">
+        <div className="flex items-center justify-center w-24 mt-5 bg-sky-400 rounded-xl">
           <svg
             width="24"
             height="24"
@@ -130,7 +131,7 @@ const AboutUs = () => {
 
           <span className="pl-2 text-white">Chia sẻ</span>
         </div>
-        <div className=" my-5 text-xl leading-relaxed">
+        <div className="my-5 text-xl leading-relaxed ">
           <span>Tin liên quan</span>
           <h2 className="border w-[50px]  my-1 border-gray-700"></h2>
           <h3 className="border w-[40px] my-1 border-gray-700"></h3>
@@ -165,46 +166,7 @@ const AboutUs = () => {
             <span className="pl-2 text-gray-400">Hướng dẫn thanh toán</span>
           </span>
         </div>
-        <div className="border rounded-md bg-gray-100 p-3 ">
-          <span>Bình luận bài viết</span>
-          <div className="grid grid-cols-3 gap-2 ">
-            <div className="my-2 flex flex-col mx-3">
-              <span>1. Nhập họ và tên</span>
-              <input
-                className="border border-gray-300 outline-none px-2 py-1 mt-2"
-                type="text"
-                placeholder="*"
-              />
-            </div>
-            <div className="my-2 flex flex-col mx-3">
-              <span>2. Nhập email</span>
-              <input
-                className="border border-gray-300 outline-none px-2 py-1 mt-2"
-                type="text"
-                placeholder="*"
-              />
-            </div>
-            <div className="my-2 flex flex-col mx-3">
-              <span>3. Nhập số điện thoại</span>
-              <input
-                className="border border-gray-300 outline-none px-2 py-1 mt-2"
-                type="text"
-                placeholder="*"
-              />
-            </div>
-            <div>
-              <span>4. Viết bình luận của bạn xuống dưới.</span>
-              <input
-                className="border border-gray-300 outline-none px-2 py-1 mt-2 min-w-[1170px] min-h-[160px] "
-                type="text"
-                placeholder="*"
-              />
-            </div>
-          </div>
-          <div className="rounded-2xl bg-yellow-500 w-[300px] h-8 text-xl text-white flex items-center justify-center my-2 hover:bg-yellow-200">
-            <button>Gửi ngay</button>
-          </div>
-        </div>
+        <Contact title={"Gửi liên hệ"}></Contact>
       </div>
     </div>
   );

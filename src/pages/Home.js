@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hearder from "../components/Hearder";
 import Popular from "../components/Popular";
 import Tour from "../components/Tour";
@@ -92,20 +92,9 @@ const dataListTour = [
   // },
 ];
 
-const dataListBlog = [
-  {
-    img: "./mientay1.png",
-    title: "Cẩm nang du lịch",
-    note: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ipsum aut libero optio. Amet laudantium, qui minima nobis nostrum sunt accusamus mollitia vel aperiam rem. Iste optio voluptatem earum ea.",
-  },
-  {
-    img: "./mientay.jpg",
-    title: "Cẩm nang du lịch",
-    note: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ipsum aut libero optio. Amet laudantium, qui minima nobis nostrum sunt accusamus mollitia vel aperiam rem. Iste optio voluptatem earum ea.",
-  },
-];
-
 const Home = () => {
+  const [tourFeatured, setTourFeatured] = React.useState([]);
+  const [tourHot, setTourHot] = React.useState([]);
   const fetchTours = async () => {
     try {
       const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
@@ -116,14 +105,31 @@ const Home = () => {
     }
   };
   const { data: tours } = useQuery(["tours"], () => fetchTours());
+  useEffect(() => {
+    if (tours?.length > 0) {
+      setTourFeatured(tours.filter((tour) => tour.featured === true));
+      setTourHot(tours.filter((tour) => tour.tourHot === true));
+    }
+  }, [tours]);
+
+  const fetchPost = async () => {
+    try {
+      const res = await axios.get("http://localhost:8001/api/v1/post");
+      return res.data;
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    }
+  };
+  const { data: posts } = useQuery(["posts"], () => fetchPost());
   return (
     <div>
-      <Hearder img={"/2.jpg"}></Hearder>
-      <Popular title={"Tour nổi bật trong tháng"} data={tours}></Popular>
+      <Hearder img={"/bien.jpg"}></Hearder>
+      <Popular title={"Tour nổi bật trong tháng"} data={tourFeatured}></Popular>
       {/* <Popular data={dataPopular2}></Popular> */}
-      <Tour></Tour>
+      <Tour data={tourHot}></Tour>
       <ListTour data={dataListTour}></ListTour>
-      <Blog data={dataListBlog}></Blog>
+      <Blog data={posts?.posts}></Blog>
       <Footer></Footer>
     </div>
   );

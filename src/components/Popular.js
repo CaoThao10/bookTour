@@ -1,9 +1,10 @@
 import React from "react";
 import { convertBase64ToImage } from "../until/componentsHandle";
+import { NavLink } from "react-router-dom";
 
 const Popular = ({ title, data }) => {
   return (
-    <div>
+    <div className="mt-10">
       <div className="flex justify-center my-4">
         <h2 className="text-4xl font-medium text-gray-500">{title}</h2>
       </div>
@@ -29,7 +30,7 @@ const Popular = ({ title, data }) => {
 
 function ItemPopular({ img, title, price, slug }) {
   return (
-    <div className="flex items-center justify-center">
+    <NavLink to={`/${slug}`} className="flex items-center justify-center ">
       <div className=" mx-1 w-[100%] h-[100%] object-cover relative ">
         <img
           src={img}
@@ -37,20 +38,20 @@ function ItemPopular({ img, title, price, slug }) {
           className="aspect-[5/4] object-cover w-[100%] boder rounded-md opacity-90 "
         />
         <div className="absolute flex flex-col items-center justify-center w-full mb-3 bottom-1">
-          <h3 className="flex items-center justify-center text-3xl text-center text-white">
+          <h3 className="flex items-center justify-center text-3xl font-semibold text-center text-white">
             {title}
           </h3>
-          <h4 className="flex items-center justify-center text-2xl text-center text-white">
+          <h4 className="flex items-center justify-center text-xl font-semibold text-center text-white">
             Giá: {price} VNĐ
           </h4>
-          <a href={`book/${slug}`}>
+          <NavLink to={`book/${slug}`}>
             <button className="px-2 py-1 text-white border rounded-xl hover:bg-yellow-400 hover:border-transparent">
               Đặt ngay
             </button>
-          </a>
+          </NavLink>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

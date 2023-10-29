@@ -1,7 +1,14 @@
-import React, { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, Outlet, redirect } from "react-router-dom";
 
 const Admin = () => {
+  const slug = document.location.pathname;
+  console.log(slug);
+  useEffect(() => {
+    if (slug === "/admin") {
+      document.location.pathname = "/admin/manageInWeb";
+    }
+  }, [slug]);
   return (
     <div className="bg-[#f6f6f6] w-full min-h-[100vh]">
       <div className="w-full fixed z-10 h-[60px] bg-white shadow-sm px-[2%] border-b border-blue6">
@@ -16,7 +23,7 @@ const Admin = () => {
           <div className="flex items-center h-full gap-7">
             <NavLink to="/">
               <button className="px-4 py-2 text-sm font-semibold text-white rounded-sm bg-blue7">
-                Trở về trang mua hàng
+                Trở về trang chủ
               </button>
             </NavLink>
             <svg
@@ -57,9 +64,9 @@ const Admin = () => {
             {/*============================== Quản lí đơn hàng ==============================*/}
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-1">
-                <NavLink to={"dashboard"} className="p-4 rounded-md ">
+                {/* <NavLink to={"dashboard"} className="p-4 rounded-md ">
                   Dashboard
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   to={"manageInWeb"}
                   className="p-4 rounded-md itemMenuProfile"
@@ -77,22 +84,22 @@ const Admin = () => {
                   Thêm Tour
                 </NavLink>
                 <NavLink
+                  to={"add-post"}
+                  className="p-4 rounded-md itemMenuProfile"
+                >
+                  Thêm Bài viết
+                </NavLink>
+                <NavLink
+                  to={"manage-post"}
+                  className="p-4 rounded-md itemMenuProfile whitespace-nowrap"
+                >
+                  Quản lí bài viết
+                </NavLink>
+                <NavLink
                   to={"support"}
                   className="p-4 rounded-md itemMenuProfile"
                 >
                   Hỗ trợ
-                </NavLink>
-                <NavLink
-                  to={"revenue"}
-                  className="p-4 rounded-md itemMenuProfile"
-                >
-                  Doanh thu
-                </NavLink>
-                <NavLink
-                  to={"feed-back"}
-                  className="p-4 rounded-md itemMenuProfile whitespace-nowrap"
-                >
-                  Góp ý, cải thiện sản phẩm
                 </NavLink>
               </div>
             </div>

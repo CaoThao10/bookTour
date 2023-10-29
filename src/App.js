@@ -14,6 +14,8 @@ import AddTour from "./pages/admin/AddTour";
 import NotFound from "./pages/admin/NotFound";
 import ManageTourInWeb from "./pages/admin/ManageTourInWeb";
 import DashBoard from "./pages/admin/DashBoard";
+import AddPost from "./pages/admin/AddPost";
+import ManagePost from "./pages/admin/ManagePost";
 
 const App = () => {
   return (
@@ -24,24 +26,27 @@ const App = () => {
         <Route path="/tour" element={<TourPage></TourPage>}></Route>
         <Route path="/book/:slug" element={<BookPage></BookPage>}></Route>
         <Route path="/price" element={<PricePage></PricePage>}></Route>
+        <Route
+          path="/:slug"
+          element={<TourDetailPage></TourDetailPage>}
+        ></Route>
         <Route path="/admin" element={<Admin></Admin>}>
-          <Route path="" element={<DashBoard></DashBoard>}></Route>
           <Route path="manage" element={<ManageTour></ManageTour>}></Route>
           <Route
             path="manageInWeb"
             element={<ManageTourInWeb></ManageTourInWeb>}
           ></Route>
+          <Route path="manage-post" element={<ManagePost></ManagePost>}></Route>
 
+          <Route path="add-post" element={<AddPost></AddPost>}></Route>
+          <Route path="edit-post/:id" element={<AddPost></AddPost>}></Route>
           <Route path="add-tour" element={<AddTour></AddTour>}></Route>
           <Route path="edit-tour/:id" element={<AddTour></AddTour>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Route>
         <Route path="/blog" element={<BlogPage></BlogPage>}></Route>
         <Route path="/contact" element={<ContactPage></ContactPage>}></Route>
-        <Route
-          path="/detail"
-          element={<TourDetailPage></TourDetailPage>}
-        ></Route>
+
         {/* <Home></Home> */}
         {/* <Introduce></Introduce> */}
       </Routes>

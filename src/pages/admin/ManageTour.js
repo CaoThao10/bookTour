@@ -218,6 +218,12 @@ const ManageTour = () => {
                             "!bg-rose-300 !text-red !border-rose-300"
                           }`}
                           onClick={() => {
+                            if (item?.status === "COMPLETED") {
+                              return toast.error("Đơn hàng đã hoàn thành");
+                            }
+                            if (item?.status === "CANCELLED") {
+                              handleActionProduct(item?.id, "PENDING");
+                            }
                             if (item?.status === "DELAYED") {
                               handleActionProduct(item?.id, "INPROGRESS");
                             } else if (item?.status === "INPROGRESS") {
@@ -237,6 +243,8 @@ const ManageTour = () => {
                             ? "Hoàn thành"
                             : item?.status === "DELAYED"
                             ? "Bắt đầu"
+                            : item?.status === "CANCELLED"
+                            ? "Khôi phục"
                             : "Đã hoàn thành"}
                         </button>
                         {item?.status === "CONFIRMED" && (

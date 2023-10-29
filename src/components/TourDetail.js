@@ -26,8 +26,8 @@ const TourDetail = ({ data }) => {
       <div className="mx-[165px]">
         <div className="my-5 text-2xl leading-5 ">
           <span>Tour</span>
-          <h2 className="border w-[50px]  my-1 border-gray-700">13112132</h2>
-          <h3 className="border w-[40px] my-1 border-gray-700">3435</h3>
+          {/* <h2 className="border w-[50px]  my-1 border-gray-700">13112132</h2>
+          <h3 className="border w-[40px] my-1 border-gray-700">3435</h3> */}
         </div>
       </div>
       <div className="grid grid-cols-3 gap-5 p-2 mx-40 my-5">
