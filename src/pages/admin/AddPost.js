@@ -21,7 +21,9 @@ const AddPost = () => {
   // Lấy thông tin sản phẩm
   const fetchOnePost = async () => {
     try {
-      const res = await axios.get(`http://localhost:8001/api/v1/post/${id}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/post/${id}`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -120,7 +122,7 @@ const AddPost = () => {
       }));
     notify();
     try {
-      await axios.post(`http://localhost:8001/api/v1/post`, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/post`, {
         ...valueInput,
         content: content,
       });
@@ -171,7 +173,7 @@ const AddPost = () => {
   const handleEditPost = async () => {
     try {
       await axios.put(
-        `http://localhost:8001/api/v1/post/edit-post/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/post/edit-post/${id}`,
         {
           ...valueInput,
           description: content,

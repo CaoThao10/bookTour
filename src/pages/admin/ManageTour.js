@@ -13,7 +13,9 @@ const ManageTour = () => {
 
   const fetchTours = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/booking/all");
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/booking/all`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -52,7 +54,7 @@ const ManageTour = () => {
   }, [isShow, tours]);
   const handleActionProduct = (id, action) => {
     axios
-      .put(`http://localhost:8001/api/v1/booking/${id}`, {
+      .put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/booking/${id}`, {
         status: action,
       })
       .then((res) => {

@@ -13,14 +13,14 @@ const ContactContent = () => {
   const handleBookTour = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8001/api/v1/contact",
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/contact`,
         valueContact
       );
       console.log(res);
       toast.success("Gửi thành công");
     } catch (error) {
       console.log(error);
-      toast.error(error?.response?.data);
+      toast.error("Gửi thất bại");
     }
   };
 

@@ -16,6 +16,7 @@ import ManageTourInWeb from "./pages/admin/ManageTourInWeb";
 import DashBoard from "./pages/admin/DashBoard";
 import AddPost from "./pages/admin/AddPost";
 import ManagePost from "./pages/admin/ManagePost";
+import ManageMessage from "./pages/admin/ManageMessage";
 
 const App = () => {
   return (
@@ -41,6 +42,10 @@ const App = () => {
           <Route path="add-post" element={<AddPost></AddPost>}></Route>
           <Route path="edit-post/:id" element={<AddPost></AddPost>}></Route>
           <Route path="add-tour" element={<AddTour></AddTour>}></Route>
+          <Route
+            path="support"
+            element={<ManageMessage></ManageMessage>}
+          ></Route>
           <Route path="edit-tour/:id" element={<AddTour></AddTour>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Route>

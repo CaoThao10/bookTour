@@ -7,7 +7,9 @@ const BookTour = () => {
   const slug = document.location.pathname.split("/")[2];
   const fetchTours = async () => {
     try {
-      const res = await axios.get(`http://localhost:8001/api/v1/tour/${slug}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/${slug}`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -76,7 +78,7 @@ const BookTour = () => {
   const handleBookTour = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8001/api/v1/booking",
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/booking`,
         valueCustomer
       );
       console.log(res);

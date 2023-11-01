@@ -12,7 +12,9 @@ const ManageTourInWeb = () => {
 
   const fetchTours = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/all-tour`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -28,7 +30,7 @@ const ManageTourInWeb = () => {
   const apiDeleteProduct = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:8001/api/v1/tour/delete-tour/${id}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/delete-tour/${id}`
       );
       return res.data;
     } catch (err) {

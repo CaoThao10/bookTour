@@ -93,7 +93,9 @@ const data4 = [
 const BlogPage = () => {
   const fetchPost = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/post");
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/post`
+      );
       return res.data;
     } catch (err) {
       console.log(err);

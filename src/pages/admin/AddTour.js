@@ -32,7 +32,9 @@ const AddTour = () => {
   // Lấy thông tin sản phẩm
   const fetchOneTours = async () => {
     try {
-      const res = await axios.get(`http://localhost:8001/api/v1/tour/${id}`);
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/${id}`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -147,10 +149,13 @@ const AddTour = () => {
       }));
     notify();
     try {
-      await axios.post(`http://localhost:8001/api/v1/tour/create-tour`, {
-        ...valueInput,
-        description: valueDescription,
-      });
+      await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/create-tour`,
+        {
+          ...valueInput,
+          description: valueDescription,
+        }
+      );
       handleResetValue();
       toast.update(toastId.current, {
         render: "Thêm Tour thành công!",
@@ -198,7 +203,7 @@ const AddTour = () => {
   const handleEditTour = async () => {
     try {
       await axios.put(
-        `http://localhost:8001/api/v1/tour/edit-tour/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/edit-tour/${id}`,
         {
           ...valueInput,
           description: valueDescription,

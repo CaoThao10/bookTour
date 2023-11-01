@@ -97,7 +97,9 @@ const Home = () => {
   const [tourHot, setTourHot] = React.useState([]);
   const fetchTours = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/tour/all-tour");
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/tour/all-tour`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
@@ -114,7 +116,9 @@ const Home = () => {
 
   const fetchPost = async () => {
     try {
-      const res = await axios.get("http://localhost:8001/api/v1/post");
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/post`
+      );
       return res.data;
     } catch (err) {
       console.log(err);
