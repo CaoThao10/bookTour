@@ -49,7 +49,7 @@ const TourDetail = ({ data }) => {
 
 function Itemtour({ img, location, cost, sales, slug }) {
   return (
-    <div className="flex flex-col border rounded-lg ">
+    <NavLink to={`/${slug}`} className="flex flex-col border rounded-lg ">
       <div>
         <img
           className=" w-full h-[389px] object-cover rounded-tl-lg rounded-tr-lg"
@@ -70,7 +70,7 @@ function Itemtour({ img, location, cost, sales, slug }) {
           </button>
         </a>
       </div>
-    </div>
+    </NavLink>
   );
 }
 
