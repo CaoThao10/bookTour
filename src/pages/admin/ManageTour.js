@@ -283,7 +283,6 @@ const ManageTour = () => {
               );
             })}
         </div>
-        123
       </div>
     </div>
   );
